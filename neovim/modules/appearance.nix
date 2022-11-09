@@ -1,8 +1,9 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
   imports = [
     ./colorschemes/gruvbox
+    ./statusline
   ];
 
   set = {
