@@ -3,6 +3,7 @@
 neovimBuilder {
   imports = [
     ./modules/appearance.nix
+    ./modules/lsp
   ];
 
   package = neovim-unwrapped;
