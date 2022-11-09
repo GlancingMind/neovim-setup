@@ -10,15 +10,19 @@ in {
 
   plugins = with pkgs.vimPlugins; [
     nvim-lspconfig
+    vim-nix
   ];
 
   use.lspconfig.gopls.setup = dsl.callWith {
     cmd = [ (getExe pkgs.gopls) ];
+    filetypes = [ "go" ];
     inherit capabilities;
   };
 
-  use.lspconfig.rnix.setup = dsl.callWith {
-    cmd = [ (getExe pkgs.rnix-lsp) ];
+  use.lspconfig.nil_ls.setup = dsl.callWith {
+    cmd = [ (getExe pkgs.nil) ];
+    filetypes = [ "nix" ];
+    #root_dir = dsl.callWith "nvim_lsp.util.root_pattern('flake.nix', '.git')";
     inherit capabilities;
   };
 }

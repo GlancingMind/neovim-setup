@@ -12,12 +12,20 @@
 
   outputs = { self, nixpkgs, nixpkgs-unstable, flake-utils, nix2vim }:
   flake-utils.lib.eachDefaultSystem(system: let
-    pkgs = import nixpkgs {
-      inherit system;
-      overlays = [ nix2vim.overlay ];
-    };
-
     unstable-pkgs = nixpkgs-unstable.legacyPackages.${system};
+    pkgs = let
+      unstable-overlay = self: super: {
+        # Add nil-lsp from unstable channel, as stable dont have it
+        inherit (unstable-pkgs) nil;
+        vimPlugins = super.vimPlugins // {
+          # Update nvim-lspconfig for nil-lsp support
+          inherit (unstable-pkgs.vimPlugins) nvim-lspconfig;
+        };
+      };
+    in import nixpkgs {
+      inherit system;
+      overlays = [ nix2vim.overlay unstable-overlay ];
+    };
 
     packages = rec {
       default = neovim;
