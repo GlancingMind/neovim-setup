@@ -4,6 +4,7 @@ neovimBuilder {
   imports = [
     ./modules/appearance.nix
     ./modules/lsp
+    ./modules/treesitter
   ];
 
   package = neovim-unwrapped;
