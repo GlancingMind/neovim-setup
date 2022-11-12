@@ -2,6 +2,7 @@
 
 neovimBuilder {
   imports = [
+    ./modules/essentials.nix
     ./modules/appearance.nix
     ./modules/lsp
     ./modules/treesitter

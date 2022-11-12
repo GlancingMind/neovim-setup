@@ -6,6 +6,20 @@
     ./statusline
   ];
 
+  plugins = with pkgs.vimPlugins; [
+    zen-mode-nvim
+  ];
+
+  setup.zen-mode = {
+    window = {
+      backdrop = 1;
+      options = {
+        cursorcolumn = false;
+        cursorline = false;
+      };
+    };
+  };
+
   set = {
     background="light";
 
