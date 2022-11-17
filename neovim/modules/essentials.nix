@@ -7,6 +7,7 @@
     mini-nvim
 
     trouble-nvim
+    nvim-web-devicons
   ];
 
   setup.trouble = {};
