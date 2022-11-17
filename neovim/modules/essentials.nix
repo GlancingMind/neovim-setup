@@ -5,7 +5,11 @@
     editorconfig-nvim
     hop-nvim
     mini-nvim
+
+    trouble-nvim
   ];
+
+  setup.trouble = {};
 
   setup."mini.surround" = {};
 
