@@ -38,7 +38,7 @@
   nnoremap."<silent> <leader> K" = "<Cmd>Lspsaga preview_definition<CR>";
 
   # show diagnostics
-  nnoremap."<silent> leader> sd" = "<Cmd>Lspsaga show_line_diagnostics<CR>";
+  nnoremap."<silent> <leader> sd" = "<Cmd>Lspsaga show_line_diagnostics<CR>";
   # jump diagnostic
   nnoremap."<silent> <leader> nd" = "<Cmd>Lspsaga diagnostic_jump_next<CR>";
   nnoremap."<silent> <leader> pd" = "<Cmd>Lspsaga diagnostic_jump_prev<CR>";
