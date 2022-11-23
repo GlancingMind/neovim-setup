@@ -21,4 +21,11 @@ in {
     #root_dir = dsl.callWith "nvim_lsp.util.root_pattern('flake.nix', '.git')";
     inherit capabilities;
   };
+
+  use.lspconfig.texlab.setup = dsl.callWith {
+    cmd = [ (getExe pkgs.texlab) ];
+    filetypes = [ "tex" ];
+    #root_dir = dsl.callWith "nvim_lsp.util.root_pattern('flake.nix', '.git')";
+    inherit capabilities;
+  };
 }
