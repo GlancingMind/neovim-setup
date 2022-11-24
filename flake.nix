@@ -2,10 +2,10 @@
   description = "A very basic flake";
 
   inputs = {
-    nixpkgs-unstable.url = github:NixOS/nixpkgs/nixpkgs-unstable;
-    flake-utils.url = github:numtide/flake-utils;
+    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
+    flake-utils.url = "github:numtide/flake-utils";
     nix2vim = {
-      url = github:gytis-ivaskevicius/nix2vim;
+      url = "github:gytis-ivaskevicius/nix2vim";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
   };
@@ -19,7 +19,9 @@
         inherit (unstable-pkgs) nil;
         vimPlugins = super.vimPlugins // {
           # Update nvim-lspconfig for nil-lsp support
-          inherit (unstable-pkgs.vimPlugins) nvim-lspconfig;
+          inherit (unstable-pkgs.vimPlugins)
+            nvim-lspconfig
+            cmp-nvim-lsp-signature-help;
         };
       };
     in import nixpkgs {
